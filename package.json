@@ -1,0 +1,16 @@
+{
+  "name": "photography",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "git subtree push --prefix builds/production origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sboueydev/photography.git"
+  },
+  "author": "Sophie Bouey",
+  "license": "ISC",
+  "homepage": "https://sboueydev.github.io/photography"
+}
