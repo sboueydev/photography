@@ -1,0 +1,25 @@
+header {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+h1 {
+    font-family: $serif-font;
+    color: $title-color;
+}
+
+#site-title {
+    @include fluid-type(320px, 2560px, 45px, 180px);
+    line-height: 1.75;
+}
+
+.subtitle {
+    font-family: $serif-font;
+    font-style: italic;
+    text-align: center;
+    color: lighten($title-color, 20%);
+}
+
+#site-subtitle {
+    @include fluid-type(320px, 2560px, 25px, 85px);
+}

@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-	gutil = require('gulp-util'),
+  gutil = require('gulp-util'),
+    compass = require('gulp-compass'),
     connect = require('gulp-connect'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
@@ -27,8 +28,8 @@ if (env==='development') {
 
 
 jsSources = [
-  'components/scripts/myscript.js',
-  'components/scripts/jquery-3.3.1.min.js'
+  'components/scripts/jquery-3.3.1.min.js',
+  'components/scripts/myscript.js'
 ];
 sassSources = ['components/sass/style.scss'];
 htmlSources = [outputDir + '*.html'];
@@ -41,9 +42,15 @@ gulp.task('js', function() {
     .pipe(connect.reload())
 });
 
-gulp.task('styles', function() {
+gulp.task('compass', function() {
   gulp.src(sassSources)
-    .pipe(sass().on('error', sass.logError)
+    .pipe(compass({
+      css: outputDir + 'css',
+      sass: 'components/sass',
+      image: outputDir + 'images',
+      style: 'expanded'
+    })
+    .on('error', gutil.log))
     .pipe(autoprefixer('last 2 versions'))
     .pipe(gulpif(env === 'production', csso()))
     .pipe(gulp.dest(outputDir + 'css'))
@@ -63,7 +70,7 @@ gulp.task('images', function() {
 
 gulp.task('watch', function() {
   gulp.watch(jsSources, ['js'])
-  gulp.watch('components/sass/*.scss', ['styles'])
+  gulp.watch('components/sass/*.scss', ['compass'])
   gulp.watch('builds/development/*.html', ['html'])
   gulp.watch('builds/development/images/**/*.*', ['images'])
 });
@@ -82,4 +89,4 @@ gulp.task('html', function() {
     .pipe(connect.reload())
 });
 
-gulp.task('default', ['html', 'js', 'styles', 'images', 'connect', 'watch']);
+gulp.task('default', ['html', 'js', 'compass', 'images', 'connect', 'watch']);
