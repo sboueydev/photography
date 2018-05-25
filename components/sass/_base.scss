@@ -8,9 +8,8 @@ h1 {
     color: $title-color;
 }
 
-#site-title {
-    @include fluid-type(320px, 2560px, 45px, 180px);
-    line-height: 1.75;
+.container {
+    margin: 3vh 5vw;
 }
 
 .subtitle {
@@ -20,6 +19,16 @@ h1 {
     color: lighten($title-color, 20%);
 }
 
-#site-subtitle {
-    @include fluid-type(320px, 2560px, 25px, 85px);
+img {
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 760px) {
+    .horizontal-wrapper { 
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 }

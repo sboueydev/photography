@@ -28,7 +28,6 @@ if (env==='development') {
 
 
 jsSources = [
-  'components/scripts/jquery-3.3.1.min.js',
   'components/scripts/myscript.js'
 ];
 sassSources = ['components/sass/style.scss'];
