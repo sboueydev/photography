@@ -33,8 +33,8 @@
         height: 300px;
         .horizontal-wrapper {
             height: 100%;
-            margin-bottom: -150px; /* maximum width of scrollbar */
-            padding-bottom: 150px; /* maximum width of scrollbar */
+            margin-bottom: -50px; /* maximum width of scrollbar */
+            padding-bottom: 50px; /* maximum width of scrollbar */
             overflow-x: scroll;
             img {
                 display: inline-block;
@@ -48,9 +48,9 @@
     }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1440px) {
     .hide-scroll {
-        height: 600px;
+        height: 500px;
         .horizontal-wrapper {
             margin-bottom: -250px; /* maximum width of scrollbar */
             padding-bottom: 250px; /* maximum width of scrollbar */
@@ -65,5 +65,14 @@
             margin-bottom: -250px; /* maximum width of scrollbar */
             padding-bottom: 250px; /* maximum width of scrollbar */
         }
+    }
+}
+
+
+.column-view {
+    column-count: 2;
+    column-gap: 5px;
+    img {
+        margin-bottom: 5px;
     }
 }
